@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 // data
 const notes = [
+  
   {
     id: 1,
     name: 'Fancy Product',
