@@ -11,7 +11,7 @@ const notes = [
     name: 'Fancy Product',
     price1: '$40.00 - ',
     price2: '$80.00',
-    star:'',
+    star: '',
     linkname: 'View options',
     important: true
   },
@@ -20,7 +20,7 @@ const notes = [
     name: 'Special Item',
     price1: '$20.00 ',
     price2: '$18.00',
-    star:'⭐',
+    star: '⭐',
     linkname: 'Add to cart',
     important: true
   },
@@ -29,7 +29,7 @@ const notes = [
     name: 'Sale Item',
     price1: '$50.00 - ',
     price2: '$25.00',
-    star:'',
+    star: '',
     linkname: 'Add to cart',
     important: true
   },
@@ -38,7 +38,7 @@ const notes = [
     name: 'Popular Item',
     price1: '',
     price2: '$40.00',
-    star:'⭐',
+    star: '⭐',
     linkname: 'Add to cart',
     important: true
   },
@@ -47,7 +47,7 @@ const notes = [
     name: 'Sale Item',
     price1: '$50.00 - ',
     price2: '$25.00',
-    star:'',
+    star: '',
     linkname: 'Add to cart',
     important: true
   },
@@ -56,7 +56,7 @@ const notes = [
     name: 'Fancy Product',
     price1: '$120.00 -',
     price2: '$280.00',
-    star:'',
+    star: '',
     linkname: 'View options',
     important: true
   },
@@ -65,7 +65,7 @@ const notes = [
     name: 'Special Item',
     price1: '$20.00 ',
     price2: '$18.00',
-    star:'⭐',
+    star: '⭐',
     linkname: 'Add to cart',
     important: true
   },
@@ -74,7 +74,7 @@ const notes = [
     name: 'Popular Item',
     price1: '',
     price2: '$40.00',
-    star:'⭐',
+    star: '⭐',
     linkname: 'Add to cart',
     important: true
   },
