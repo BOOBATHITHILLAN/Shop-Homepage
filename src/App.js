@@ -3,40 +3,44 @@ import Footer from "./components/Footer";
 
 
 
+
+
 function App(props) {
-    const { notes } = props;
+    const { notes } = props;  
+    
 
-   
-
-   
-
-    function Handleevent(event){
+    function Handleevent(id){
+         
         
+        let Button=document.getElementById(`${id}`)      
         
-        if(event.target.innerHTML==='Add to cart'){
-            let Id=event.target.id;            
-            let Button=document.getElementById(`${Id}`);
-            Button.classList.add('disabled');
+        if(Button.innerHTML==='Add to cart'){  
+            
+            Button.innerHTML="Remove item"   
+            Button.style.backgroundColor="#f00"  
+            Button.style.fontWeight='bold'                       
             let Addcart=document.getElementById(`addcart`);
             let AddcartValue=Number(Addcart.innerHTML);
-            Addcart.innerHTML=AddcartValue+1
+            if(AddcartValue>-1 && AddcartValue!==6){
+                Addcart.innerHTML=AddcartValue+1
+            } 
+
+        }else if(Button.innerHTML==="Remove item"){
+            Button.innerHTML="Add to cart"
+            Button.removeAttribute('style')
+            let Addcart=document.getElementById(`addcart`);
+            let AddcartValue=Number(Addcart.innerHTML);
+            if(AddcartValue>-1 && AddcartValue<=6){
+                Addcart.innerHTML=AddcartValue-1
+            }  
+        } 
+                
             
-           
-        }
-        else if(event.target.innerHTML.includes('Cart')){
-           
-            
-            // let Button=document.getElementById(`${id}`);
-            // Button.classList.remove('disabled');
-            // let Addcart=document.getElementById(`addcart`);
-            // let AddcartValue=Number(Addcart.innerHTML);
-            // Addcart.innerHTML=AddcartValue-1
-        }
-        
-        
+         
         
     }
 
+   
     function ProductName({ notes }){
         if (notes.name !== 'Fancy Product') {
             return (
@@ -66,13 +70,13 @@ function App(props) {
                             </div>
                         </div>
 
-                        <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div className="text-center"><a className="btn btn-outline-dark mt-auto" href="#addcart" id={notes.id} onClick={Handleevent}>{notes.linkname}</a></div>
+                        <div className="card-footer p-4 pt-0 border-top-0 bg-transparent" >
+                            <div className="text-center"><button className="btn btn-outline-dark mt-auto" href="#cart" id={notes.id}   onClick={()=>Handleevent(notes.id)}>{notes.linkname}</button></div>
                         </div>
                     </div>
                 </div>
             )
-        }
+        }else{
             return (
                 <div className="col mb-5">
                     <div className="card h-100">
@@ -93,11 +97,13 @@ function App(props) {
                         </div>
 
                         <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div className="text-center"><a className="btn btn-outline-dark mt-auto" id={notes.id} href="#addcart" onClick={Handleevent}>{notes.linkname}</a></div>
+                            <div className="text-center"><a className="btn btn-outline-dark mt-auto" id={notes.id}  href="#addcart">{notes.linkname}</a></div>
                         </div>
                     </div>
                 </div>
             )
+        }
+           
         
 
     }
@@ -123,9 +129,9 @@ function App(props) {
                                 </ul>
                             </li>
                         </ul>
-                        <div>
+                        <div id="cart">
                             <form className="d-flex">
-                                <button className="btn btn-outline-dark" type="submit" onClick={Handleevent}>
+                                <button className="btn btn-outline-dark" type="submit" >
                                     <i className="bi-cart-fill me-1"></i>
                                     Cart
                                     <span className="badge bg-dark text-white ms-1 rounded-pill" id='addcart'>0</span>
@@ -145,8 +151,8 @@ function App(props) {
                     <div className="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 
 
-                        {notes.map(note =>
-                            <ProductName key={note.id} notes={note} />
+                        {notes.map((note,index) =>
+                            <ProductName key={note.id}  notes={note} />
                             
                         )}
 
